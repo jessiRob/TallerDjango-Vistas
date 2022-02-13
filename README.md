@@ -1,5 +1,16 @@
 # Monitoring Views Workshop
 
+**Gets:**
+All
+
+By id
+
+**Post:**
+
+**Put:**
+
+**Delete:**
+
 * if you want a easy installation use **pipenv\*** else use **requirements.txt**
 
 **pipenv:** can be installed wih:
