@@ -441,7 +441,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}{{api_path}}/measurements?id=1",
+							"raw": "{{host}}:{{port}}{{api_path}}/measurements?id=2",
 							"host": [
 								"{{host}}"
 							],
@@ -452,7 +452,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -601,7 +601,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"variable\": {\r\n        \"name\":\"Temp\"\r\n        }\r\n    ,\r\n    \"value\": 16,\r\n    \"unit\": \"°C\",\r\n    \"place\": \"W-404\",\r\n    \"dateTime\": \"2022-02-12T23:54:07.918Z\"\r\n}",
+							"raw": "{\r\n    \"variable\": \"1\",\r\n    \"value\": \"16\",\r\n    \"unit\": \"°C\",\r\n    \"place\": \"W-404\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -711,7 +711,70 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Measurement",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"variable\": 1,\r\n    \"value\": 20.0,\r\n    \"unit\": \"°C\",\r\n    \"place\": \"Z-103\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}{{api_path}}/measurements/2",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}{{api_path}}",
+									"path": [
+										"measurements",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 14 Feb 2022 00:24:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.7.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "163"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"model\": \"measurements.measurement\",\n        \"pk\": 2,\n        \"fields\": {\n            \"variable\": 1,\n            \"value\": 20,\n            \"unit\": \"°C\",\n            \"place\": \"Z-103\",\n            \"dateTime\": \"2022-02-12T23:54:30.712Z\"\n        }\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "Retrive Measurement",

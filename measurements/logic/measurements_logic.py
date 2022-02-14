@@ -1,4 +1,6 @@
+from datetime import datetime
 from ..models import Measurement
+from ..models import Variable
 
 def get_measurements():
     measurements = Measurement.objects.all()
@@ -10,7 +12,8 @@ def get_measurement(var_pk):
 
 def update_measurement(var_pk, new_var):
     measurement = get_measurement(var_pk)
-    measurement.variable = new_var.Variable
+    variable = Variable.objects.get(pk=new_var["variable"])
+    measurement.variable = variable
     measurement.value = new_var["value"]
     measurement.unit = new_var["unit"]
     measurement.place = new_var["place"]
@@ -22,6 +25,7 @@ def delete_measurement(var_pk):
     return measurement
 
 def create_measurement(var):
-    measurement = Measurement(variable=var["variable"], value=var["value"], unit=var["unit"], place=var["place"])
+    variable = Variable.objects.get(pk=var["variable"])
+    measurement = Measurement(variable = variable, value=var["value"], unit=var["unit"], place=var["place"])
     measurement.save()
     return measurement

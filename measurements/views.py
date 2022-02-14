@@ -42,5 +42,4 @@ def measurement_view(request, pk):
 
     if request.method == 'DELETE':
         measurement_dto = vl.delete_measurement(pk)
-        #measurement = serializers.serialize('json', [measurement_dto,])
         return HttpResponse('Measurement was deleted successfully!', 'application/json')
