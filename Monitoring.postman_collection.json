@@ -425,6 +425,19 @@
 			"item": [
 				{
 					"name": "Retrive Measurements",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id_variable\",data.id);\r",
+									"tests[\"el test corrió sin problemas\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -441,7 +454,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}{{api_path}}/measurements?id=2",
+							"raw": "{{host}}:{{port}}{{api_path}}/measurements",
 							"host": [
 								"{{host}}"
 							],
@@ -452,7 +465,8 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "2"
+									"value": "2",
+									"disabled": true
 								}
 							]
 						}
@@ -596,6 +610,19 @@
 				},
 				{
 					"name": "Create Measurement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id_variable\",data.id);\r",
+									"tests[\"el test corrió sin problemas\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -687,6 +714,19 @@
 				},
 				{
 					"name": "Update Measurement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id_variable\",data.id);\r",
+									"tests[\"el test corrió sin problemas\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -700,14 +740,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}:{{port}}{{api_path}}/measurements/2",
+							"raw": "{{host}}:{{port}}{{api_path}}/measurements/10",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}{{api_path}}",
 							"path": [
 								"measurements",
-								"2"
+								"10"
 							]
 						}
 					},
@@ -778,6 +818,19 @@
 				},
 				{
 					"name": "Retrive Measurement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"new_id_variable\",data.id);\r",
+									"tests[\"el test corrió sin problemas\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -851,18 +904,29 @@
 				},
 				{
 					"name": "Delete Measurement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"el test corrió sin problemas\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}:{{port}}{{api_path}}/measurements/7",
+							"raw": "{{host}}:{{port}}{{api_path}}/measurements/8",
 							"host": [
 								"{{host}}"
 							],
 							"port": "{{port}}{{api_path}}",
 							"path": [
 								"measurements",
-								"7"
+								"8"
 							]
 						}
 					},
